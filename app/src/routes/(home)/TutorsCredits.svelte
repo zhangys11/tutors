@@ -18,3 +18,21 @@
     </div>
   </div>
 </div>
+
+<!--
+<script>
+  let number = 0;
+  let increment = () => (number += 1);
+  let decrement = () => (number -= 1);
+</script>
+
+<main>
+  <h1>Button Increment and decrement example</h1>
+  <button on:click={increment}>Increment</button>
+  <button on:click={decrement}>Decrement</button>
+  <input value={number} size="9" />
+</main>
+
+<style>
+</style>
+-->
