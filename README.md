@@ -1,10 +1,6 @@
 <p align="center">
   <a href="https://tutors.dev">
-    <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="./assets/tutors-dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="./assets/tutors-light.png">
-      <img alt="Text changing depending on mode. Light: 'Tutors Light Mode Logo' Dark: 'Tutors Dark Mode Logo'" src="./assets/tutors-light.png">
-    </picture>    
+    <img src="./static/tutors-light.png"
   </a>
 </p>
 
@@ -14,164 +10,161 @@ Tutors: An Open Learning Web Toolkit
 
 <p align="center">
   <a href="https://tutors.dev">Website</a> |
-  <a href="https://docs.tutors.dev">Documentation</a> |
-  <a href="https://discord.tutors.dev">Discord</a>
+  <a href="https://tutors.dev/course/tutors-reference-manual">Documentation</a>
 </p>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/86f6c9e2-a780-410d-a735-241e08e2b949/deploy-status)](https://app.netlify.com/sites/tutors-dev/deploys) [![CI](https://github.com/tutors-sdk/tutors/actions/workflows/ci.yml/badge.svg)](https://github.com/tutors-sdk/tutors/actions/workflows/ci.yml)
+## Table of Contents
 
-# What is Tutors?
+- [What is Tutors](#what-is-tutors)
+- [Getting Started](#getting-started)
+- [Requesting Features](#requesting-features)
+- [Reporting Bugs](#reporting-bugs)
+- [Setting Up a Tutors Development Environment](#setting-up-a-tutors-development-environment)
+- [Example Tutors Courses](#example-tutors-courses)
+- [Tutors Project Repos](#tutors-project-repos)
+- [Contributing](#contributing)
 
-A collection of open source components & services supporting the creation of transformative learning experiences using open web standards. Some representative examples:
+## What is Tutors
 
-- [Higher Diploma in Computer Science Portal](https://tutors.dev/course/wit-hdip-comp-sci-showcase)
-- [Full Stack Development](https://tutors.dev/course/full-stack-web-dev-oth-2022)
-- [Reference Course](https://tutors.dev/course/tutors-reference)
-- [Higher Diploma in Computer Science at SETU: 2020-2022](https://tutors.dev/course/wit-hdip-comp-sci-2020)
-- [Classic Design Patterns](https://tutors.dev/course/classic-design-patterns)
-- [Agile Software Development](https://tutors.dev/course/agile-dev-2021)
-- [Technologische Fähigkeiten](https://tutors.dev/course/zusatzstudium-digital-skills-semester1)
+Tutors is a collection of open source components and services supporting the creation of transformative learning experiences using open web standards. It consists of two key components:
 
-# Getting Started
+- _Generator:_ transforms a [folder of learning content](https://github.com/tutors-sdk/tutors-reference-course) into a Tutors course
 
-Make sure you have Node 16 + installed, and start by cloning this repo:
+- _Reader_: presents a Tutors course as an intuitive, discoverable and attractive [Web experience](https://tutors.dev/course/reference-course)
 
-```bash
+This repo is the Tutors Reader. A companion repo:
+
+- <https://github.com/tutors-sdk/tutors-apps>
+
+...host the generators + support tools. These components are developed in the open by an active and friendly community, based on a [simple set of values](https://tutors.dev/course/tutors-reference-manual#tutors-values).
+
+## Getting Started
+
+The first step might be to become familiar with the course structure by [browsing a sample course](https://tutors.dev/course/reference-course), and then scan the [reference manual](https://tutors.dev/course/tutors-reference-manual). The manual will guide you through the process creating and publishing your own course (perhaps a copy of a sample). Thereafter you could scan the [Gallery of existing courses](https://tutors.dev/gallery) to get an idea as to how Tutors is used in practice.
+
+Consider setting up your own [development version of tutors](#setting-up-a-tutors-development-environment) for experimentation.
+
+## Reporting Bugs
+
+We are delighted to get bug reports. If you encounter a bug, please open a [Tutors Issue](https://github.com/tutors-sdk/tutors/issues) with a description of the problem. Include information about the environment where the bug occurred, steps to reproduce it, and any relevant screenshots or error messages. Label the issue 'fix'. Perhaps do a quick scan to see if the bug has been reported - if so you might comment / react to the existing error (use filtering to see only '`fix` labeled issues).
+
+## Requesting Features
+
+If you have an idea for a new feature or enhancement, feel free to open a [Tutors Issue](https://github.com/tutors-sdk/tutors/issues). Describe the proposed feature, its benefits, and any other relevant details. Label the new issue `feature`. Perhaps do a quick scan to see if the feature has already been proposed and consider commenting / reacting to the feature instead of creating a new one (use filtering to see only '`feature` labeled issues).
+
+## Setting up a tutors Development Environment
+
+Make sure you have Node 18 + installed, and start by cloning this repo:
+
+~~~bash
 git clone https://github.com/tutors-sdk/tutors.git
-```
+~~~
 
-Open a shell and...
+Open a shell and change into the project folder and run `npm install`...
 
-```bash
+~~~bash
 cd tutors
 npm install
-```
+~~~
 
-Change directory into the app folder
-
-```bash
-cd app
-```
-
-and copy the file `.env.example` to `.env`
-
-```bash
-cp .env.example .env
-```
+Then copy the file `.env.example` to `.env`
 
 Now to start the app you can run this command from the root:
 
-```bash
-npm run app
-```
-
-Or this command from the app folder:
-
-```bash
+~~~bash
 npm run dev
-```
+~~~
 
-You should see an output similar to below:
+This should launch the application:
 
-```bash
-tutors-app@9.0.0 dev
-vite dev --port 3000 --open
+~~~bash
+  VITE v5.0.12  ready in 1069 ms
 
-
-VITE v4.4.9  ready in 966 ms
-
- ➜  Local:   http://localhost:3000/
- ➜  Network: use --host to expose
-```
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+~~~
 
 Now the app is up and running and you can browse to it by opening the <a href="http://localhost:3000/">local location</a> in your browser.
 
-The app encompasses all web components of the Tutors project, and the course reader component relies on a segment of the url to locate the course to display. Any of the samples above can be 'read' with an appropriate url segments appended to the local url you now have running. So for instance:
+The Tutors reader relies on a segment of the url to locate the course to display. Any of the [samples below]((#example-tutors-courses)) can be 'read' with an appropriate url segments appended to the local url you now have running. So for instance:
 
-```bash
-https://tutors.dev/course/tutors-reference
-```
+- <https://tutors.dev/course/reference-course>
 
 ... can be loaded locally by:
 
-```bash
-http://localhost:3000/course/tutors-reference
-```
+- <http://localhost:3000/course/reference-course>
 
-(Note the port number may vary - for example 3000)
+(Note the port number 3000 may vary - see the launch console)
 
 The 'source' for the above course is here:
 
-- https://github.com/tutors-sdk/tutors-template
+- https://github.com/tutors-sdk/tutors-reference-course
 
-You could try any of the other sample courses above.
+You could try any of the other sample courses above. For example this course:
 
-If you would like to build your own course then [this workshop here](https://tutors.dev/topic/tutors-docs/topic-00-WX) would be a good place to start. In particular, [this lab here](https://tutors.dev/lab/tutors-docs/topic-00-WX/unit-1-creating/book-a) will get you up and running with a sample course in a few minutes. More guidance and examples are on our [Educator documentation](https://tutors.dev/topic/tutors-docs/topic-02-EX) site. To learn more about the project, explore the core principles at https://tutors.dev/.
+- https://tutors.dev/course/full-stack-web-dev-oth-2022
 
-If you have VSCode, you should be able to open the project.
+can be opened by this local reader like this:
 
-# Project Structure
+- https://localhost:3000/course/full-stack-web-dev-oth-2022
 
-This is a monorepo for all of the components & services of the [Tutors Open Source Project](https://tutors.dev/).
+### Tutors Project Repos
 
-## App
+There are 4 key tutors repos:
 
-The app is the student facing web application for browsing a course, inspecting course analytics + a storybook encapsulation of UX elements. It is a SvelteKit application that renders a course in an appealing, context sensitive user experience. The principles embodied in the [learner experience are presented here](https://tutors.dev/lab/docs.tutors.dev/topic-03-DX/unit-0/book-plans/01).
+- [Tutors](https://github.com/tutors-sdk/tutors): The course reader application. This is a SvelteKit application, written in TypeScript with a user experience implemented using Tailwind & Skeleton.
+- [Tutors Apps](https://github.com/tutors-sdk/tutors-apps): A monorepo encapsulating the generators, tests + support tools and applications. It is written in TypeScript.
+- [Tutors Reference Manual](https://github.com/tutors-sdk/tutors-reference-manual): The manual is itself a tutors course, and is largely written in Markdown.
+- [Tutors Reference Course](https://github.com/tutors-sdk/tutors-reference-course): A Tutors course to included all tutors learning objects and structures.
 
-The app contains grouped routes, sectioned for their purpose. These are explained below:
+### Example Tutors Courses
 
-### [home](<https://github.com/tutors-sdk/tutors/tree/development/app/src/routes/(home)>)
+The reference course might be a place to start:
 
-The homepage of Tutors app.
+- [Reference Course](https://github.com/tutors-sdk/tutors-reference-course)
 
-### [auth](<https://github.com/tutors-sdk/tutors/tree/development/app/src/routes/(auth)>)
+You can clone and rebuild this course following [these instructions.](https://tutors.dev/course/tutors-reference-manual#getting-started)
 
-The authentication routes of the app. The app uses [Supabase](https://supabase.com/) for authentication, using GitHub as the OAuth provider.
+This is an example of an open source course:
 
-### [course-reader](<https://github.com/tutors-sdk/tutors/tree/development/app/src/routes/(course-reader)>)
+- [Full Stack Development](https://github.com/wit-hdip-comp-sci-2023/full-stack-1)
 
-The main Tutors user experience - demonstrated in the links above. This can be built and launched via the instructions above.
+This is a selected Course Gallery:
 
-### [time](<https://github.com/tutors-sdk/tutors/tree/development/app/src/routes/(time)>)
+- [Gallery of Tutors Courses](https://tutors.dev/gallery)
 
-This route presents the educational analytics gathered by the application. There is a student + an educator perspective.
+Some courses of interest:
 
-## CLI
+- [Higher Diploma in Computer Science Portal](https://tutors.dev/course/wit-hdip-comp-sci-showcase)
+- [Full Stack Development](https://tutors.dev/course/full-stack-web-dev-oth-2022)
+- [Data Analytics](https://tutors.dev/course/data-analytics-essentials)
+- [Reference Course](https://tutors.dev/course/reference-course)
+- [Higher Diploma in Computer Science at SETU: 2020-2022](https://tutors.dev/course/wit-hdip-comp-sci-2020)
+- [Classic Design Patterns](https://tutors.dev/course/classic-design-patterns)
+- [Agile Software Development](https://tutors.dev/course/agile-2023)
+- [Technologische Fähigkeiten](https://tutors.dev/course/zusatzstudium-digital-skills-semester1)
 
-These are command line applications used by educators to generate courses. The principles embodied in the [educator experience are presented here](https://tutors.dev/lab/docs.tutors.dev/topic-03-DX/unit-0/book-plans/02).
+Note: Some courses will request you authenticate via github for access.
 
-### [tutors-gen-lib](https://github.com/tutors-sdk/tutors/tree/development/cli/tutors-gen-lib)
+### Contributing
 
-// Todo
+We welcome [feature requests](#requesting-features) & [bug reports](#reporting-bugs)! If you would like to try your hand at [tackling an issue](https://github.com/tutors-sdk/tutors/issues) - your own or one off the shelf, then here is how it might work:
 
-### [tutors-publish](https://github.com/tutors-sdk/tutors/tree/development/cli/tutors-publish)
+1. [Fork the](https://www.freecodecamp.org/news/how-to-fork-a-github-repository/) [tutors repository](https://github.com/tutors-sdk/tutors)
+2. [Set up a local build](#setting-up-a-tutors-development-environment)
+3. Create a new branch for [your selected issue](https://github.com/tutors-sdk/tutors/issues) (feature or fix).
+4. Make your changes, and verify that feature behaves as expected in your local build
+6. Commit your changes, perhpas consider [following these guideline for commit messages](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
+7. Push your changes to your fork
+8. Submit a pull request to [tutors](https://github.com/tutors-sdk/tutors).
 
-// Todo
-
-### [tutors-publish-html](https://github.com/tutors-sdk/tutors/tree/development/cli/tutors-publish-html)
-
-// Todo
-
-# Contributing
-
-Please ensure to read the [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing to the Tutors project.
-
-When contributing, pull requests should be opened to the 'development' branch, and once tested this will be merged to main.
-
-![Tutors Holopin](assets/tutors-holopin.png)
+![Tutors Holopin](static/tutors-holopin.png)
 
 All contributors are eligible to earn a [Holopin](https://holopin.io) - a digital badge that represents your contributions to the project. These badges evolve the more contributions you make to the project!
 
 Every time you open a PR that is accepted, you will be assigned holobytes. Collect these holobytes to see your owl evolve!
 
-# Sponsors
+### License
 
-This project is powered by [Netlify Open Source](https://www.netlify.com/open-source/).
-
-[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-bg.svg)](https://www.netlify.com)
-
-# License
-
-[![license](https://img.shields.io/badge/license-MIT-3A929B.svg)](./LICENSE)
-
-This project is licensed under the terms of the [MIT License](./LICENSE).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

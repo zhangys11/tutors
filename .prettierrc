@@ -1,7 +1,15 @@
 {
+  "useTabs": false,
   "singleQuote": false,
   "trailingComma": "none",
   "printWidth": 180,
-  "svelteStrictMode": true,
-  "bracketSameLine": true
+  "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
 }
