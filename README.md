@@ -1,4 +1,4 @@
-<h3>To self-host an online edu website, recommend to use Moodel instead. This repo is now achieved. </h3>
+<h3>To self-host an online edu website, recommend to use [Moodel](https://github.com/zhangys11/moodle) instead. This repo is now achieved. </h3>
 
 <p align="center">
   <a href="https://tutors.dev">
