@@ -1,3 +1,5 @@
+<h3>To self-host an online edu website, recommend to use Moodel instead. This repo is now achieved. </h3>
+
 <p align="center">
   <a href="https://tutors.dev">
     <img src="./static/tutors-light.png"
